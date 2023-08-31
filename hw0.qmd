@@ -1,0 +1,45 @@
+---
+title: "homework0"
+author: "Mengdi Chai"
+format: html
+---
+
+***1. Write a Quarto document that defines variables $a = 1, b = 3, c = 2$ and print out the solutions to $f(x) = ax^2+bx+c=0$.***
+
+```{r}
+#| echo: false
+# Define the variables 
+a <- 1
+b <- 3
+c <- 2
+
+# Write the discriminant
+m <- b^2-4*a*c 
+
+# Solve the equation 
+if(m > 0){ # The equation has two solutions 
+  x1 <- (-b + sqrt(m))/2*a
+  x2 <- (-b - sqrt(m))/2*a
+  
+  print(paste("The equation has two solutions: x1 =", x1, " x2 =", x2))
+} else if (m == 0){ # The equation has one solution
+  x <- (-b + sqrt(m))/2*a
+  
+  print(paste("The equation has one solution: x =", x))
+} else{ # The equation has no solution
+  print("The equation has no solution")
+}
+
+```
+
+***2. Include a graph of $f(x)$ to confirm the result.***
+
+```{r}
+#| echo: false
+# Draw the plot to find the solution for x 
+x <- seq(-3, 0, , length = 300)
+plot(x, a*x^2 + b*x + c, type = "l")
+abline(h = 0, lty = 2)
+```
+
+From the graph, it shows that the equation $f(x) = ax^2+bx+c=0$ when $a = 1, b = 3, c = 2$ has two solutions, x1 = -1, x2 = -2.
