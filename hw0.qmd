@@ -43,12 +43,12 @@ if(m > 0){ # The equation has two solutions
   abline(h = 0, lty = 2)
   
 } else if (m == 0){ # The equation has one solution
-  s <- seq(-2*a/b-1, -2*a/b+1, length = 300)
+  s <- seq(-b/2*a-1, -b/2*a-1, length = 300)
   
   plot(s, a*s^2 + b*s + c, type = "l")
   abline(h = 0, lty = 2)
 } else{ # The equation has no solution
-  s <- seq(-2*a/b-1, -2*a/b+1, length = 300)
+  s <- seq(-b/2*a-1, -b/2*a-1, length = 300)
   
   plot(s, a*s^2 + b*s + c, type = "l")
   abline(h = 0, lty = 2)
