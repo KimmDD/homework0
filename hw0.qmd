@@ -27,7 +27,7 @@ if(m > 0){ # The equation has two solutions
   
   print(paste("The equation has one solution: x =", x))
 } else{ # The equation has no solution
-  print("The equation has no solution")
+  print("The equation has no real number solutions")
 }
 
 ```
@@ -37,9 +37,23 @@ if(m > 0){ # The equation has two solutions
 ```{r}
 #| echo: false
 # Draw the plot to find the solution for x 
-x <- seq(-3, 0, , length = 300)
-plot(x, a*x^2 + b*x + c, type = "l")
-abline(h = 0, lty = 2)
+if(m > 0){ # The equation has two solutions 
+  s <- seq(x2-1, x1+1, length = 300)
+  plot(s, a*s^2 + b*s + c, type = "l")
+  abline(h = 0, lty = 2)
+  
+} else if (m == 0){ # The equation has one solution
+  s <- seq(-2*a/b-1, -2*a/b+1, length = 300)
+  
+  plot(s, a*s^2 + b*s + c, type = "l")
+  abline(h = 0, lty = 2)
+} else{ # The equation has no solution
+  s <- seq(-2*a/b-1, -2*a/b+1, length = 300)
+  
+  plot(s, a*s^2 + b*s + c, type = "l")
+  abline(h = 0, lty = 2)
+}
+
 ```
 
 From the graph, it shows that the equation $f(x) = ax^2+bx+c=0$ when $a = 1, b = 3, c = 2$ has two solutions, x1 = -1, x2 = -2.
